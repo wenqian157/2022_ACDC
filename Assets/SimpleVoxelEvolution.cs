@@ -254,5 +254,7 @@ public class SimpleVoxelEvolution : MonoBehaviour
         mesh.triangles = myMesh.FlattenedTriangles();
         mesh.SetColors(myMesh.Colors);
         mesh.RecalculateNormals();
+
+        Debug.Log("time: " + System.DateTime.Now.ToLongTimeString());
     }
 }
