@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "com.dbt.hdgeom": {
-      "version": "file:C:/D/GitHub/HDUnity",
+      "version": "file:C:/D/Git/HDUnity",
       "depth": 0,
       "source": "local",
       "dependencies": {}
