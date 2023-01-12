@@ -66,15 +66,19 @@ public class MeshSubdivisionExample : MonoBehaviour
     private HDMesh subdivide(HDMesh hdmesh)
     {
         HDMesh newMesh = new HDMesh();
-        for (int i = 0; i < hdmesh.faces.Count; i++)
+        for (int i = 0; i < hdmesh.Faces.Count; i++)
         {
-            Vector3[] face_vertices = HDUtilsVertex.face_vertices(hdmesh, hdmesh.faces[i]);
+            Vector3[] face_vertices = HDUtilsVertex.face_vertices(hdmesh, hdmesh.Faces[i]);
             List<Vector3[]> new_faces_vertices = HDMeshSubdivision.subdivide_face_extrude(face_vertices, 1f);
             //List<Vector3[]> new_faces_vertices = HDMeshSubdivision.subdivide_face_split_grid(face_vertices, 2, 1);
 
             foreach (var new_face_vertices in new_faces_vertices)
             {
-                newMesh.AddQuad(new_face_vertices, Color.white);
+                if (new_face_vertices.Length == 4)
+                {
+                    newMesh.AddQuad(new_face_vertices[0], new_face_vertices[1], new_face_vertices[2], new_face_vertices[3], Color.white);
+                }
+                
             }
         }
         return newMesh;
@@ -82,7 +86,7 @@ public class MeshSubdivisionExample : MonoBehaviour
 
     private void displayHDMesh(HDMesh hdmesh)
     {
-        HDMesh displayMesh = hdmesh.copy();
+        HDMesh displayMesh = hdmesh.Copy();
 
         displayMesh.TriangulateQuads();
         displayMesh.SeparateVertices();
