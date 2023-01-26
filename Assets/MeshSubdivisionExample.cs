@@ -15,7 +15,7 @@ public class MeshSubdivisionExample : MonoBehaviour
 
         initHDmesh = new HDMesh();
         Color color = Color.white;
-        Color colorFacade = Color.white;
+        Color colorFacade = Color.red;
 
         //HDMeshFactory.AddBox(initHDmesh, 0f, 0f, 0f, 3f, 2f, 1f, colorFacade);
         HDMeshFactory.AddQuad(initHDmesh, 0, 0, 0, 3, 0, 0, 3, 2, 0, 0, 2, 0, colorFacade);
